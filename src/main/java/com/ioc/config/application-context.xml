@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean id="dumpty" class="com.ioc.beans.Dumpty"></bean>
+	
+	<!-- <bean id="dumpty1" class="com.ioc.beans.Dumpty"></bean> -->
+	
+	<!-- <bean id="humpty" class="com.ioc.beans.Humpty" autowire="byName"/> -->
+	
+	<bean id="a" class="com.ioc.beans.A" scope="singleton">
+		<property name="bid"><idref bean="b1"/></property>
+	</bean>
+	
+	<bean id="b1" class="com.ioc.beans.B" scope="prototype"/>
+	
+	<bean id="humpty" class="com.ioc.beans.Humpty" autowire="constructor">
+		
+	</bean>
+	
+	<bean id="htmlmessage" class="com.ioc.beans.HtmlMessage" />
+	
+	<bean id="textmessage" class="com.ioc.beans.TextMessage" autowire-candidate="false"/>
+	
+	<bean id="messagedisplay" class="com.ioc.beans.MessageDisplay" autowire="byType">
+		<qualifier value="htmlmessage"/>
+	</bean>
+	
+	
+	
+	</beans>
+
+
